@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#index'
+  get 'team', to: 'pages#team'
   devise_for :users, :controllers => {
   	:registrations => 'users/registrations',
   }
