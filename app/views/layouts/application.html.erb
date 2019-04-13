@@ -30,6 +30,15 @@
           <li class="nav-item">
             <a class="nav-link" href="#">COMMENT ÇA MARCHE</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="<%= offres_path %>">Offre</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="<%= domaines_path %>">Domaine</a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="team">TEAM</a>
           </li>
@@ -41,8 +50,6 @@
             <li class="nav-item ">
               <%= link_to  "CONNEXION", new_user_session_path, :class => 'nav-link' %>
             </li>
-
-            <%= link_to 'domaines', domaines_path %> || <%= link_to 'offre', offres_path %>
           <% end %>
         </ul>
       </div>
