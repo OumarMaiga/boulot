@@ -1,0 +1,51 @@
+<%= form_with(model: offre, local: true) do |form| %>
+  <% if offre.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(offre.errors.count, "error") %> prohibited this offre from being saved:</h2>
+
+      <ul>
+      <% offre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :domaine_id %>
+    <%= form.select :domaine_id, Domaine.pluck(:nom, :id) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :titre %>
+    <%= form.text_field :titre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :montan_min %>
+    <%= form.number_field :montan_min %>
+  </div>
+
+  <div class="field">
+    <%= form.label :montant_max %>
+    <%= form.number_field :montant_max %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_close %>
+    <%= form.date_select :date_close %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

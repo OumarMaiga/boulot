@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  offre: one
+  montant: 1
+  motivation: MyString
+
+two:
+  user: two
+  offre: two
+  montant: 1
+  motivation: MyString

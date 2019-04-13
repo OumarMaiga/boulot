@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :postulers, except: :new
+  resources :offres
+  resources :domaines
   root to: 'pages#index'
   devise_for :users, :controllers => {
   	:registrations => 'users/registrations',

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Offres</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Domaine</th>
+      <th>Titre</th>
+      <th>Montan min</th>
+      <th>Montant max</th>
+      <th>Etat</th>
+      <th>Description</th>
+      <th>Date close</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offres.each do |offre| %>
+      <tr>
+        <td><%= offre.domaine %></td>
+        <td><%= offre.titre %></td>
+        <td><%= offre.montan_min %></td>
+        <td><%= offre.montant_max %></td>
+        <td><%= offre.etat %></td>
+        <td><%= offre.description %></td>
+        <td><%= offre.date_close %></td>
+        <td><%= offre.user %></td>
+        <td><%= link_to 'Show', offre %></td>
+        <td><%= link_to 'Edit', edit_offre_path(offre) %></td>
+        <td><%= link_to 'Destroy', offre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Offre', new_offre_path %>

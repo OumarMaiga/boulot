@@ -10,7 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_10_195648) do
+ActiveRecord::Schema.define(version: 2019_04_13_212520) do
+
+  create_table "domaines", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "nom"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_domaines_on_user_id"
+  end
+
+  create_table "offres", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "domaine_id"
+    t.string "titre"
+    t.integer "montan_min"
+    t.integer "montant_max"
+    t.boolean "etat", default: true
+    t.text "description"
+    t.date "date_close"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["domaine_id"], name: "index_offres_on_domaine_id"
+    t.index ["user_id"], name: "index_offres_on_user_id"
+  end
+
+  create_table "postulers", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "offre_id"
+    t.integer "montant"
+    t.string "motivation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["offre_id"], name: "index_postulers_on_offre_id"
+    t.index ["user_id"], name: "index_postulers_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,4 +74,9 @@ ActiveRecord::Schema.define(version: 2019_04_10_195648) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "domaines", "users"
+  add_foreign_key "offres", "domaines"
+  add_foreign_key "offres", "users"
+  add_foreign_key "postulers", "offres"
+  add_foreign_key "postulers", "users"
 end

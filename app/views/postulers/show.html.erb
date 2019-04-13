@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @postuler.user %>
+</p>
+
+<p>
+  <strong>Offre:</strong>
+  <%= @postuler.offre %>
+</p>
+
+<p>
+  <strong>Montant:</strong>
+  <%= @postuler.montant %>
+</p>
+
+<p>
+  <strong>Motivation:</strong>
+  <%= @postuler.motivation %>
+</p>
+
+<%= link_to 'Edit', edit_postuler_path(@postuler) %> |
+<%= link_to 'Back', postulers_path %>

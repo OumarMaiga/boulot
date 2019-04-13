@@ -1,0 +1,32 @@
+<%= form_with(model: postuler, local: true) do |form| %>
+  <% if postuler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(postuler.errors.count, "error") %> prohibited this postuler from being saved:</h2>
+
+      <ul>
+      <% postuler.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :montant %>
+    <%= form.number_field :montant %>
+  </div>
+
+  <div class="field">
+    <%= form.label :motivation %>
+    <%= form.text_field :motivation %>
+  </div>
+
+  <%= form.hidden_field :offre_id, :value => @offre.id %>   
+  <% if user_signed_in? %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

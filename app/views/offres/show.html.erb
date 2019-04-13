@@ -1,0 +1,78 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Domaine:</strong>
+  <%= @offre.domaine %>
+</p>
+
+<p>
+  <strong>Titre:</strong>
+  <%= @offre.titre %>
+</p>
+
+<p>
+  <strong>Montan min:</strong>
+  <%= @offre.montan_min %>
+</p>
+
+<p>
+  <strong>Montant max:</strong>
+  <%= @offre.montant_max %>
+</p>
+
+<p>
+  <strong>Etat:</strong>
+  <%= @offre.etat %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @offre.description %>
+</p>
+
+<p>
+  <strong>Date close:</strong>
+  <%= @offre.date_close %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @offre.user %>
+</p>
+
+<h1>Postuler</h1>
+
+<%= form_with(model: @postuler, local: true) do |form| %>
+  <% if @postuler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@postuler.errors.count, "error") %> prohibited this postuler from being saved:</h2>
+
+      <ul>
+      <% @postuler.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= form.label :montant %>
+    <%= form.number_field :montant %>
+  </div>
+
+  <div class="field">
+    <%= form.label :motivation %>
+    <%= form.text_field :motivation %>
+  </div>
+
+  <%= form.hidden_field :offre_id, :value => @offre.id %>   
+  <% if user_signed_in? %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_offre_path(@offre) %> |
+<%= link_to 'Back', offres_path %>

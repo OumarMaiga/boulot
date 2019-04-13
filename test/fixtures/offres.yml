@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  domaine: one
+  titre: MyString
+  montan_min: 1
+  montant_max: 1
+  etat: false
+  description: MyText
+  date_close: 2019-04-13
+  user: one
+
+two:
+  domaine: two
+  titre: MyString
+  montan_min: 1
+  montant_max: 1
+  etat: false
+  description: MyText
+  date_close: 2019-04-13
+  user: two
