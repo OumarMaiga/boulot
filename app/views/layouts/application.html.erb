@@ -18,7 +18,7 @@
   <body>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">BOULOT</a>
+      <a class="navbar-brand text-danger" href="/">BOULOT</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,20 +31,29 @@
             <a class="nav-link" href="#">COMMENT ÇA MARCHE</a>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="<%= offres_path %>">Offre</a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="<%= domaines_path %>">Domaine</a>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a class="nav-link" href="team">TEAM</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!">CONTACT</a>
+          </li>
           <% if signed_in? %>
             <li class="nav-item">
               <%= link_to  "DECONNEXION", destroy_user_session_path, method: :DELETE, data: { confirm:'Voulez-vous vous deconnecter ?' }, :class => 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to  "OFFRES", offres_path, :class => 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to  "DOMAINES", domaines_path, :class => 'nav-link' %>
             </li>
           <% else %>
             <li class="nav-item ">

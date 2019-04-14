@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :domaines
   root to: 'pages#index'
   get 'team', to: 'pages#team'
+  get 'who', to: 'pages#who'
   devise_for :users, :controllers => {
   	:registrations => 'users/registrations',
   }

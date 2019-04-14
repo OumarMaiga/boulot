@@ -2,8 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Page accueil */
 .home-pg{
-    height: 91vh;
+    height: 92vh;
     margin-top: 0;
     background: url(mechanic-job.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -25,9 +26,41 @@
 }
 
 .users{
-    padding-top: 20px;
-    background-color: #f7f5f3;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
+
+.cta{
+    background: url(cta-bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.cta-content{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+/*** Page accueil */
+
+/* Page who */
+.who{
+    height: 92vh;
+    margin-top: 0;
+    background: url(who-bg-4.jpg) no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.who-content{
+    padding-top: 120px;
+    opacity: 1;
+}
+
+
+
+/*** Page who */
+
+
 
 /* .btn-position{
     position: fixed;
