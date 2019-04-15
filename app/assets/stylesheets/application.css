@@ -22,6 +22,16 @@
  .yield{
     padding-top: 0;
  }
+
+ footer{
+   position: relative;
+   left: 0;
+   bottom: 0;
+   background-color: black;
+   color: white;
+   width: 100%;
+   text-align: center;
+ }
  /* .home-bg{
    height: 100%;
    background-image: url(mechanic-job.jpg);
