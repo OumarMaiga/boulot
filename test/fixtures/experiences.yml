@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  poste: MyString
+  entreprise: MyString
+  annee_debut: 2019-04-16
+  annee_fin: 2019-04-16
+  user: one
+
+two:
+  poste: MyString
+  entreprise: MyString
+  annee_debut: 2019-04-16
+  annee_fin: 2019-04-16
+  user: two

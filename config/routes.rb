@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :experiences
+  resources :langues
+  resources :cursus
   resources :postulers, except: :new
   resources :offres
   resources :domaines

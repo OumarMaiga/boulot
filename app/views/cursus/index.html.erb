@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cursus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ecole</th>
+      <th>Annee debut</th>
+      <th>Annee fin</th>
+      <th>Diplome</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cursus.each do |cursu| %>
+      <tr>
+        <td><%= cursu.ecole %></td>
+        <td><%= cursu.annee_debut %></td>
+        <td><%= cursu.annee_fin %></td>
+        <td><%= cursu.diplome %></td>
+        <td><%= cursu.user %></td>
+        <td><%= link_to 'Show', cursu %></td>
+        <td><%= link_to 'Edit', edit_cursu_path(cursu) %></td>
+        <td><%= link_to 'Destroy', cursu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cursu', new_cursu_path %>

@@ -1,0 +1,41 @@
+<%= form_with(model: experience, local: true) do |form| %>
+  <% if experience.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+
+      <ul>
+      <% experience.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :poste %>
+    <%= form.text_field :poste %>
+  </div>
+
+  <div class="field">
+    <%= form.label :entreprise %>
+    <%= form.text_field :entreprise %>
+  </div>
+
+  <div class="field">
+    <%= form.label :annee_debut %>
+    <%= form.date_select :annee_debut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :annee_fin %>
+    <%= form.date_select :annee_fin %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

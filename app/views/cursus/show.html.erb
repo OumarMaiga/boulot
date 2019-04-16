@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ecole:</strong>
+  <%= @cursu.ecole %>
+</p>
+
+<p>
+  <strong>Annee debut:</strong>
+  <%= @cursu.annee_debut %>
+</p>
+
+<p>
+  <strong>Annee fin:</strong>
+  <%= @cursu.annee_fin %>
+</p>
+
+<p>
+  <strong>Diplome:</strong>
+  <%= @cursu.diplome %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @cursu.user %>
+</p>
+
+<%= link_to 'Edit', edit_cursu_path(@cursu) %> |
+<%= link_to 'Back', cursus_path %>

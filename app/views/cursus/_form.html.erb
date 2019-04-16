@@ -1,0 +1,41 @@
+<%= form_with(model: cursu, local: true) do |form| %>
+  <% if cursu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cursu.errors.count, "error") %> prohibited this cursu from being saved:</h2>
+
+      <ul>
+      <% cursu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ecole %>
+    <%= form.text_field :ecole %>
+  </div>
+
+  <div class="field">
+    <%= form.label :annee_debut %>
+    <%= form.date_select :annee_debut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :annee_fin %>
+    <%= form.date_select :annee_fin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diplome %>
+    <%= form.text_field :diplome %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

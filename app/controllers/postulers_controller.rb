@@ -1,6 +1,6 @@
 class PostulersController < ApplicationController
   before_action :set_postuler, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /postulers
   # GET /postulers.json
   def index

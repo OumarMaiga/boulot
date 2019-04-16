@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_13_212520) do
+ActiveRecord::Schema.define(version: 2019_04_16_213623) do
+
+  create_table "cursus", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "ecole"
+    t.date "annee_debut"
+    t.date "annee_fin"
+    t.string "diplome"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cursus_on_user_id"
+  end
 
   create_table "domaines", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "user_id"
@@ -18,6 +29,26 @@ ActiveRecord::Schema.define(version: 2019_04_13_212520) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_domaines_on_user_id"
+  end
+
+  create_table "experiences", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "poste"
+    t.string "entreprise"
+    t.date "annee_debut"
+    t.date "annee_fin"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
+
+  create_table "langues", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "langue"
+    t.string "niveau"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_langues_on_user_id"
   end
 
   create_table "offres", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -74,7 +105,10 @@ ActiveRecord::Schema.define(version: 2019_04_13_212520) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cursus", "users"
   add_foreign_key "domaines", "users"
+  add_foreign_key "experiences", "users"
+  add_foreign_key "langues", "users"
   add_foreign_key "offres", "domaines"
   add_foreign_key "offres", "users"
   add_foreign_key "postulers", "offres"
