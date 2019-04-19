@@ -1,0 +1,59 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label 'Raison social' %><br />
+    <%= f.text_field :nom, autofocus: true, autocomplete: "nom" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description, autocomplete: "description" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :adresse %><br />
+    <%= f.text_field :adresse, autocomplete: "adresse" %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Date de création' %><br />
+    <%= f.date_field :dateNaissance, autocomplete: "dateNaissance" %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Telephone' %><br />
+    <%= f.number_field :phone, autocomplete: "phone" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :domaine %><br />
+    <%= f.select :domaine_id, Domaine.pluck(:nom, :id) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "entreprises/shared/links" %>
